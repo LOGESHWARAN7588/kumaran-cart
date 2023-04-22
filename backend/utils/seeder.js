@@ -16,7 +16,7 @@ const seedProducts = async ()=>{
 
     }catch(error){
         console.log(error.message);
-        }
+    }process.exit();
 }
 
 seedProducts();
