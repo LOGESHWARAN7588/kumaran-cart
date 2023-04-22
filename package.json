@@ -1,0 +1,23 @@
+{
+  "name": "kumaran-cart",
+  "version": "1.0.0",
+  "description": "ecommerce using MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "dev": "set NODE_ENV=dependencies  && nodemon backend/server.js",
+    "prod" : "set NODE_ENV=production  && nodemon backend/server.js"
+
+  },
+  "author": "Logesh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mogoose": "^0.0.1-security",
+    "mongoose": "^7.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
