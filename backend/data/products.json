@@ -1,20 +1,20 @@
 [
-    {
-        "name": "OPPO F21s Pro 5G",
-        "Price": 1000,
-        "description": "OPPO F21s Pro 5G is a powerful device with charage",
-        "rathing": 4.5,
-        "images": [
-            {
-                "image": "product_2132436767564.jpg"
-            }
-        ],
-        "category": "Mobile Phones",
-        "seller": "Amazon",
-        "stock": 5,
-        "numOfReviews": 15,
-        "reviews": []  
-    },
+        {
+            "name": "OPPO F21s Pro 5G",
+            "Price": 1000,
+            "description": "OPPO F21s Pro 5G is a powerful device with charage",
+            "rathing": 4.5,
+            "images": [
+                {
+                    "image": "product_2132436767564.jpg"
+                }
+            ],
+            "category": "Mobile Phones",
+            "seller": "Amazon",
+            "stock": 5,
+            "numOfReviews": 15,
+            "reviews": []  
+        },
     {
         "name": "POCO F21s Pro 5G",
         "Price": 345.67,
