@@ -6,7 +6,10 @@
             "rathing": 4.5,
             "images": [
                 {
-                    "image": "product_2132436767564.jpg"
+                    "image": "/images/products/1.jpg"
+                },
+                {
+                    "image": "/images/products/2.jpg"
                 }
             ],
             "category": "Mobile Phones",
@@ -22,7 +25,7 @@
         "rathing": 4.5,
         "images": [
             {
-                "image": "product_2132436767564.jpg"
+                "image": "/images/products/2.jpg"
             }
         ],
         "category": "Mobile Phones",
@@ -38,7 +41,7 @@
         "rathing": 4.5,
         "images": [
             {
-                "image": "product_2132436767564.jpg"
+                "image": "/images/products/3.jpg"
             }
         ],
         "category": "Mobile Phones",
@@ -54,7 +57,7 @@
         "rathing": 4.5,
         "images": [
             {
-                "image": "product_2132436767564.jpg"
+                "image": "/images/products/4.jpg"
             }
         ],
         "category": "Mobile Phones",
@@ -70,7 +73,7 @@
         "rathing": 4.5,
         "images": [
             {
-                "image": "product_2132436767564.jpg"
+                "image": "/images/products/5.jpg"
             }
         ],
         "category": "Mobile Phones",

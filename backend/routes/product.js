@@ -6,7 +6,7 @@ const { deleteOrder } = require('../controllers/orderController');
 
 
 
-router.route('/products').get(isAuthenticatedUser ,getProducts);
+router.route('/products').get( getProducts);
 router.route('/products/:id').get(getSingleProduct);
 router.route('/products/:id').put(updateProduct);
 router.route('/products/:id').delete(deleteProduct);
