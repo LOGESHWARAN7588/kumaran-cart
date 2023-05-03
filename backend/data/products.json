@@ -1,15 +1,15 @@
 [
         {
             "name": "OPPO F21s Pro 5G",
-            "Price": 1000,
+            "price": 100,
             "description": "OPPO F21s Pro 5G is a powerful device with charage",
-            "rathing": 4.5,
+            "rating": 3,
             "images": [
                 {
                     "image": "/images/products/1.jpg"
                 },
                 {
-                    "image": "/images/products/2.jpg"
+                    "image": "/images/products/1.jpg"
                 }
             ],
             "category": "Mobile Phones",
@@ -20,64 +20,112 @@
         },
     {
         "name": "POCO F21s Pro 5G",
-        "Price": 345.67,
+        "price": 345.67,
         "description": "OPPO F21s Pro 5G is a powerful device with charage",
-        "rathing": 4.5,
+        "rating": 4,
+        "images": [
+            {
+                "image": "/images/products/1.jpg"
+            }
+        ],
+        "category": "Mobile Phones",
+        "seller": "Amazon",
+        "stock": 5,
+        "numOfReviews": 15,
+        "reviews": []  
+    },
+    {
+        "name": "SAMSUNG Watch Pro 5G",
+        "price": 985.67,
+        "description": "Water Proof Watch  powerful device with charage",
+        "rating": 2,
         "images": [
             {
                 "image": "/images/products/2.jpg"
             }
         ],
         "category": "Mobile Phones",
-        "seller": "Amazon",
+        "seller": "Flipkart",
         "stock": 5,
         "numOfReviews": 15,
         "reviews": []  
     },
     {
-        "name": "SAMSUNG F21s Pro 5G",
-        "Price": 985.67,
+        "name": "Thinkpad Laptop",
+        "price": 850.67,
         "description": "OPPO F21s Pro 5G is a powerful device with charage",
-        "rathing": 4.5,
+        "rating": 5,
         "images": [
             {
                 "image": "/images/products/3.jpg"
             }
         ],
-        "category": "Mobile Phones",
+        "category": "Laptops",
         "seller": "Amazon",
         "stock": 5,
         "numOfReviews": 15,
         "reviews": []  
     },
     {
-        "name": "VIVO F21s Pro 5G",
-        "Price": 200.67,
+        "name": "HP Laptop",
+        "price": 700.67,
         "description": "OPPO F21s Pro 5G is a powerful device with charage",
-        "rathing": 4.5,
+        "rating": 1,
+        "images": [
+            {
+                "image": "/images/products/3.jpg"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "Amazon",
+        "stock": 5,
+        "numOfReviews": 15,
+        "reviews": []  
+    },
+    {
+        "name": " Apple Head Phones",
+        "price": 500.67,
+        "description": "OPPO F21s Pro 5G is a powerful device with charage",
+        "rating": 3,
         "images": [
             {
                 "image": "/images/products/4.jpg"
             }
         ],
-        "category": "Mobile Phones",
+        "category": "Laptops",
         "seller": "Amazon",
         "stock": 5,
         "numOfReviews": 15,
         "reviews": []  
     },
     {
-        "name": "APPLE F21s Pro 5G",
-        "Price": 222.67,
+        "name": "APPLE M1 Laptop",
+        "price": 900.67,
         "description": "OPPO F21s Pro 5G is a powerful device with charage",
-        "rathing": 4.5,
+        "rating": 2,
+        "images": [
+            {
+                "image": "/images/products/3.jpg"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "Flipkart",
+        "stock": 5,
+        "numOfReviews": 15,
+        "reviews": []  
+    },
+    {
+        "name": "Nike shoes",
+        "price": 900.67,
+        "description": "OPPO F21s Pro 5G is a powerful device with charage",
+        "rating": 3,
         "images": [
             {
                 "image": "/images/products/5.jpg"
             }
         ],
-        "category": "Mobile Phones",
-        "seller": "Amazon",
+        "category": "sports",
+        "seller": "Flipkart",
         "stock": 5,
         "numOfReviews": 15,
         "reviews": []  
