@@ -3,7 +3,7 @@ import MetaData from "../layouts/MetaData";
 import { clearAuthError, login } from "../../actions/userActions";
 import {toast} from "react-toastify"
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login(){
 
@@ -78,7 +78,7 @@ export default function Login(){
                 LOGIN
                 </button>
 
-                <a href="#" className="float-right mt-3">New User?</a>
+                <Link to="/register" className="float-right mt-3">New User?</Link>
             </form>
             </div>
         </div>

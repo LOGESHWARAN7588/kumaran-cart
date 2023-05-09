@@ -55,7 +55,7 @@ const authSlice = createSlice({
                 loading: false,
                 error: action.payload
             }
-        },
+        }
     }
 
 
