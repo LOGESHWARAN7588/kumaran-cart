@@ -14,7 +14,7 @@ export default function UpdateProfile(){
 
 
     const onChangeAvatar = (e)=> {
-        const reader = new FileReader;
+        const reader = new FileReader();
             reader.onload=()=>{
                 if(reader.readyState === 2){
                     setAvatarPreview(reader.result);
@@ -63,7 +63,7 @@ export default function UpdateProfile(){
             return
         }
 
-     },[user, isUpdated, error])
+     },[user, isUpdated, error, dispatch])
 
     return(
 
