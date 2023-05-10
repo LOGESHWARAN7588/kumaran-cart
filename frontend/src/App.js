@@ -2,7 +2,7 @@ import './App.css';
 import Home from './components/Home';
 import Footer from './components/layouts/Footer';
 import Header from './components/layouts/Header';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer} from 'react-toastify';
@@ -11,9 +11,19 @@ import ProductDetail from './components/product/productDetail';
 import ProductSearch from './components/product/productSearch';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
+import store from './store'
+import { loadUser } from './actions/userActions';
 
 
 function App() {
+
+
+  useEffect(()=>{
+    store.dispatch(loadUser)
+
+  })
+
+
   return (
     <Router>
         <div className="App">
