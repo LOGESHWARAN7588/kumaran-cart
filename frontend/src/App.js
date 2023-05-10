@@ -13,6 +13,7 @@ import Login from './components/user/Login';
 import Register from './components/user/Register';
 import store from './store'
 import { loadUser } from './actions/userActions';
+import Profile from './components/user/Profile';
 
 
 function App() {
@@ -38,8 +39,10 @@ function App() {
               <Route path ='/search/:keyword' element={<ProductSearch/>}/>
 
               <Route path ='/product/:id' element={<ProductDetail/>}/>
-              <Route path ='login' element={<Login/>}/>
-              <Route path ='register' element={<Register/>}/>
+              <Route path ='/login' element={<Login/>}/>
+              <Route path ='/register' element={<Register/>}/>
+              <Route path ='/myprofile' element={<Profile/>}/>
+
 
 
             </Routes>
