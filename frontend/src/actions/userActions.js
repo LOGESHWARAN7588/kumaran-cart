@@ -9,7 +9,9 @@ import {
     registerFail,
     loadUserRequest,
     loadUserSuccess,
-    loadUserFail
+    loadUserFail,
+    logoutSuccess,
+    logoutFail
 
 } from "../slices/authSlice"
 
@@ -60,6 +62,17 @@ export const loadUser = async (dispatch)=>{
         dispatch (loadUserSuccess(data))
     }catch(error){
         dispatch(loadUserFail(error.response.data.message))
+
+    }
+}
+
+export const logout = async (dispatch)=>{
+
+    try{
+     await axios.get(`/api/v1/logout`);
+        dispatch (logoutSuccess())
+    }catch(error){
+        dispatch(logoutFail)
 
     }
 }
