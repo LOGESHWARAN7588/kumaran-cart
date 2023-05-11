@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { resetPassword , clearAuthError} from "../../../../backend/controllers/authController";
+
 import { useNavigate, useParams } from "react-router-dom";
 import {toast} from 'react-toastify'
+import { resetPassword , clearAuthError} from "../../actions/userActions";
 
 export default function ResetPassword(){
 
@@ -16,8 +17,8 @@ export default function ResetPassword(){
 
 
 
-    const submitHandler =() => {
-        e.preventDefault(e);
+    const submitHandler =(e) => {
+        e.preventDefault();
         const formData = new FormData();
         formData.append('password', password);
         formData.append('confirmPassword', confirmPassword);
