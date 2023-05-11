@@ -17,7 +17,13 @@ import {
     updateProfileFail,
     updatePasswordRequest,
     updatePasswordSuccess,
-    updatePasswordFail
+    updatePasswordFail,
+    forgotPasswordRequest,
+    forgotPasswordSuccess,
+    forgotPasswordFail,
+    resetPasswordRequest,
+    resetPasswordSuccess,
+    resetPasswordFail
 
 } from "../slices/authSlice"
 
@@ -117,6 +123,44 @@ export const updatePassword = (formData) => async (dispatch)=>{
         dispatch (updatePasswordSuccess())
     }catch(error){
         dispatch(updatePasswordFail(error.response.data.message))
+
+    }
+}
+
+export const forgotPassword = (formData) => async (dispatch)=>{
+
+    try{
+        dispatch(forgotPasswordRequest())
+      
+        const config = {
+            headers:{
+                'Content-type': 'application/json'
+            }
+    }
+
+        const {data} =await axios.post(`/api/v1/password/forgot`, config,formData);
+        dispatch (forgotPasswordSuccess(data))
+    }catch(error){
+        dispatch(forgotPasswordFail(error.response.data.message))
+
+    }
+}
+
+export const resetPassword = (formData, token) => async (dispatch)=>{
+
+    try{
+        dispatch(resetPasswordRequest())
+      
+        const config = {
+            headers:{
+                'Content-type': 'application/json'
+            }
+    }
+
+        const {data} =await axios.post(`/api/v1/password/reset/${token}`, config,formData);
+        dispatch (resetPasswordSuccess(data))
+    }catch(error){
+        dispatch(resetPasswordFail(error.response.data.message))
 
     }
 }
