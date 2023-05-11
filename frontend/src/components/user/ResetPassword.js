@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { resetPassword , clearAuthError} from "../../../../backend/controllers/authController";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {toast} from 'react-toastify'
 
 export default function ResetPassword(){
@@ -11,6 +11,8 @@ export default function ResetPassword(){
     const dispatch = useDispatch();
     const { isAuthenticated, error} = useSelector(state => state.authState);
     const navigate = useNavigate();
+    const { token} = useParams();
+
 
 
 
@@ -19,7 +21,8 @@ export default function ResetPassword(){
         const formData = new FormData();
         formData.append('password', password);
         formData.append('confirmPassword', confirmPassword);
-        dispatch(resetPassword(formData))
+        
+        dispatch(resetPassword(formData, token))
     }
 
     useEffect(() => {
