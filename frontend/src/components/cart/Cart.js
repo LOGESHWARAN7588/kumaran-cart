@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import { useDispatch ,useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { decreaseCartItemQty , increaseCartItemQty,removeItemFromCart } from "../../slices/cartSlice";
 
 export default function Cart(){
 
     const {items } = useSelector(state => state.cartState) 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const increaseQty = (item) => {
         const count = item.quantity;
@@ -18,6 +19,11 @@ export default function Cart(){
         if(count === 1) return;
         dispatch(decreaseCartItemQty(item.product))
     } 
+
+    const checkoutHandler = () =>{
+        navigate('/login?redirect=shipping')
+
+    }
 
 
     return(
@@ -87,7 +93,7 @@ export default function Cart(){
                     <p>Est. total: <span className="order-summary-values">${items.reduce ((acc, item) =>(acc + item.quantity * item.price) ,0)}</span></p>
     
                     <hr />
-                    <button id="checkout_btn" className="btn btn-primary btn-block">Check out</button>
+                    <button id="checkout_btn" onClick={checkoutHandler} className="btn btn-primary btn-block">Check out</button>
                 </div>
             </div>
         </div>
