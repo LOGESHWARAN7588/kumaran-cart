@@ -5,6 +5,24 @@ import { set } from "mongoose";
 import { saveShippingInfo } from "../../slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import CheckoutSteps from "./CheckoutStep";
+import { toast } from "react-toastify";
+
+export const validateShipping = (shippingInfo, navigate) => {
+   
+
+    if(
+        !shippingInfo.address ||
+        !shippingInfo.city ||
+        !shippingInfo.state ||
+        !shippingInfo.country ||
+        !shippingInfo.phoneNo ||
+        !shippingInfo.postalCode 
+     ) {
+            toast.error('Please fill the Shipping information', {position:toast.POSITION.BOTTOM_CENTER})
+            navigate('/shipping')
+
+    }
+}
 
 export default function Shipping(){
     const {shippingInfo} = useSelector(state => state.cartState)
