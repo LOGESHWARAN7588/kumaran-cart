@@ -112,6 +112,13 @@ const authSlice = createSlice({
                 error: action.payload
             }
         },
+        clearUpdateProfile(state, action){
+            return{
+                ...state,
+                isUpdated: false
+            }
+
+        },
         updatePasswordRequest(state, action){
             return{
                 ...state,
@@ -212,7 +219,8 @@ export const{
     forgotPasswordFail,
     resetPasswordSuccess,
     resetPasswordRequest,
-    resetPasswordFail
+    resetPasswordFail,
+    clearUpdateProfile
 
 } = actions;
 export default reducer;
