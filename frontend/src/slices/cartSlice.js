@@ -37,6 +37,27 @@ const cartSlice = createSlice({
                
             
         },
+        increaseCartItemQty(state, action){
+            state.items = state.items.map(item =>{
+                if(item.product === action.payload){
+                    item.quantity = item.quantity +1
+
+                }
+                return item;
+            })
+            localStorage.setItem('cartItems', JSON.stringify(state.items))
+        },
+        decreaseCartItemQty(state, action){
+            state.items = state.items.map(item =>{
+                if(item.product === action.payload){
+                    item.quantity = item.quantity - 1
+
+                }
+                return item;
+            })
+            localStorage.setItem('cartItems', JSON.stringify(state.items))
+        },
+
         
     }
 
@@ -45,5 +66,12 @@ const cartSlice = createSlice({
 
 const{ actions, reducer }= cartSlice; 
 
-export const{addCartItemRequest, addCartItemSuccess  } = actions;
+export const{
+    addCartItemRequest, 
+    addCartItemSuccess,
+    increaseCartItemQty,
+    decreaseCartItemQty
+
+
+} = actions;
 export default reducer;
