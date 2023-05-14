@@ -33,7 +33,7 @@ export default function Login(){
             return
         }
 
-    }, [error, isAuthenticated ,dispatch])
+    }, [error, isAuthenticated ,dispatch, navigate])
 
     return(
         <Fragment>
