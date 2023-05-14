@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { countries} from 'countries-list';
 import { set } from "mongoose";
 import { saveShippingInfo } from "../../slices/cartSlice";
 import { useNavigate } from "react-router-dom";
+import CheckoutSteps from "./CheckoutStep";
 
 export default function Shipping(){
     const {shippingInfo} = useSelector(state => state.cartState)
@@ -34,6 +35,11 @@ export default function Shipping(){
 
 
     return(
+
+        <Fragment>
+
+                <CheckoutSteps shipping/>
+
                     <div className="row wrapper">
                     <div className="col-10 col-lg-5">
                         <form onSubmit={submitHandler} className="shadow-lg">
@@ -129,5 +135,8 @@ export default function Shipping(){
                         </form>
                     </div>
                 </div>
+        </Fragment>
+
+        
     )
 }
