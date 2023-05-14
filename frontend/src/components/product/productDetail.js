@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { getProduct } from "../../actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,6 +10,24 @@ export default function ProductDetail(){
    const {loading, product} = useSelector((state) => state.productState);
     const dispatch = useDispatch();
     const { id}= useParams()
+    const [quantity , setQuantity] = useState(1);
+
+    const increaseQty = () => {
+        const count = document.querySelector('.count')
+
+        if(product.stock  === 0 || count.valueAsNumber >= product.stock)return;
+        const qty =  count.valueAsNumber + 1;
+        setQuantity(qty);
+    }
+
+    
+    const decreaseQty = () => {
+        const count = document.querySelector('.count')
+
+        if( count.valueAsNumber === 1)return;
+        const qty =  count.valueAsNumber - 1;
+        setQuantity(qty);
+    }
 
     useEffect(()=>{
         dispatch(getProduct(id))
@@ -48,13 +66,13 @@ export default function ProductDetail(){
 
             <p id="product_price">${product.price}</p>
             <div className="stockCounter d-inline">
-                <span className="btn btn-danger minus">-</span>
+                <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
 
-                <input type="number" className="form-control count d-inline" value="1" readOnly />
+                <input type="number" className="form-control count d-inline" value={quantity} readOnly />
 
-                <span className="btn btn-primary plus">+</span>
+                <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
             </div>
-             <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
+             <button type="button" id="cart_btn" disabled={product.stock===0?true:false} className="btn btn-primary d-inline ml-4">Add to Cart</button>
 
             <hr />
 
