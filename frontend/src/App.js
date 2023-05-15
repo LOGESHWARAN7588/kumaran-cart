@@ -39,7 +39,8 @@ function App() {
       setStripeApiKey(data.stripeApiKey)
      }
 
-  })
+     getStripeApiKey()
+  },[])
 
 
   return (
@@ -66,9 +67,9 @@ function App() {
               <Route path='/cart' element={<Cart/>}/>
               <Route path='/shipping' element={<ProtectedRoute><Shipping/></ProtectedRoute>}/>
               <Route path='/order/confirm' element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute>}/>
+              {stripeApiKey && 
               <Route path='/payment' element={<ProtectedRoute><Elements stripe={loadStripe(stripeApiKey)}><Payment/></Elements></ProtectedRoute>}/>
-
-
+              }
 
 
 

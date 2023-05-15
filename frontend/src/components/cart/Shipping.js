@@ -1,7 +1,6 @@
 import { Fragment, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { countries} from 'countries-list';
-import { set } from "mongoose";
 import { saveShippingInfo } from "../../slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import CheckoutSteps from "./CheckoutStep";
@@ -25,7 +24,7 @@ export const validateShipping = (shippingInfo, navigate) => {
 }
 
 export default function Shipping(){
-    const {shippingInfo} = useSelector(state => state.cartState)
+    const {shippingInfo ={} } = useSelector(state => state.cartState)
 
 
     const [address, setAddress] = useState(shippingInfo.address);
