@@ -26,6 +26,7 @@ import Payment from './components/cart/Payment';
 import axios from 'axios';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import OrderSuccess from './components/cart/OrderSuccess';
 
 
 function App() {
@@ -70,6 +71,8 @@ function App() {
               {stripeApiKey && 
               <Route path='/payment' element={<ProtectedRoute><Elements stripe={loadStripe(stripeApiKey)}><Payment/></Elements></ProtectedRoute>}/>
               }
+              <Route path='/order/success' element={<ProtectedRoute><OrderSuccess/></ProtectedRoute>}/>
+
 
 
 

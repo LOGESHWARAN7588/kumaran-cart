@@ -7,6 +7,9 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { orderCompleted } from '../../slices/cartSlice';
+import { createOrder } from '../../actions/orderActions';
+import { clearError as clearOrderError} from '../../slices/orderSlice';
+
 
 export default function Payment(){
     const stripe= useStripe();
@@ -16,6 +19,7 @@ export default function Payment(){
     const orderInfo= JSON.parse( sessionStorage.getItem('orderInfo'))
     const { user } = useSelector (state => state.authState)
     const {items:cartItems , shippingInfo}= useSelector(state => state.cartState)
+    const {error:orderError } =useSelector(state => state.orderState)
     const paymentData = 
         {
             amount: Math.round( orderInfo.totalPrice * 100),
@@ -50,7 +54,16 @@ export default function Payment(){
 
     useEffect(() => {
         validateShipping(shippingInfo, navigate)
-    })
+        if(orderError ) {
+            toast(orderError, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                type: 'error',
+                onOpen: ()=>{ dispatch( clearOrderError())}
+            })
+            return
+
+        }
+    }, [])
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -72,7 +85,7 @@ export default function Payment(){
            })
            
            if(result.error){
-                toast((await result).error.message, {
+                toast( result.error.message, {
                     type: 'error',
                     position: toast.POSITION.BOTTOM_CENTER
                 })
@@ -83,7 +96,13 @@ export default function Payment(){
                         type: 'success',
                         position: toast.POSITION.BOTTOM_CENTER
                     })
+                    order.paymentInfo ={
+                        id: (await result).paymentIntent.id,
+                        status: (await result).paymentIntent.status
+                        
+                    }
                     dispatch(orderCompleted())
+                    dispatch(createOrder(order))
                     navigate('/order/success')
                 }else{
                     toast( 'Please try again!', {
