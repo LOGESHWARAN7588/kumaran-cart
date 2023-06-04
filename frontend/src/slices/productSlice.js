@@ -47,6 +47,12 @@ const productSlice = createSlice({
                 error:  action.payload
             }
         },
+        clearReviewSubmitted(state, action) {
+            return {
+                ...state,
+                isReviewSubmitted: false
+            }
+        },
         clearError(state, action) {
             return{ ...state,
              error: null
@@ -67,5 +73,6 @@ export const{
     createReviewFail,
     createReviewRequest,
     createReviewSuccess,
+    clearReviewSubmitted,
 } = actions;
 export default reducer;
