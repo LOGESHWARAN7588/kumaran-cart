@@ -1,7 +1,29 @@
+import { useDispatch, useSelector } from "react-redux";
+import { getAdminProducts } from "../../actions/productActions";
 import Sidebar from "./Sidebar";
+import { useEffect } from "react";
 
 
 export default function Dashboard () {
+    const { products = [] } = useSelector( state => state.productsState);
+    const dispatch = useDispatch();
+    let outOfStock = 0;
+
+    if (products.length > 0) {
+        products.forEach( product => {
+            if( product.stock === 0  ) {
+                outOfStock = outOfStock + 1;
+            }
+        })
+    }
+
+    useEffect( () => {
+        dispatch(getAdminProducts);
+        
+     }, [])
+
+
+
    
 
     return (
@@ -26,7 +48,7 @@ export default function Dashboard () {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Products<br /> <b>23</b></div>
+                                            <div className="text-center card-font-size">Products<br /> <b>{products.length}</b></div>
                                         </div>
                                         <a className="card-footer text-white clearfix small z-1" to="/admin/products">
                                             <span className="float-left">View Details</span>
@@ -71,7 +93,7 @@ export default function Dashboard () {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-warning o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Out of Stock<br /> <b>10</b></div>
+                                            <div className="text-center card-font-size">Out of Stock<br /> <b>{outOfStock}</b></div>
                                         </div>
                                     </div>
                                 </div>

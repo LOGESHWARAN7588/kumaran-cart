@@ -1,8 +1,10 @@
 const express = require('express');
-const { getProducts, newProduct, getSingleProduct, updateProduct, deleteProduct, createReview, getReviews, deleteReview } = require('../controllers/productController');
+const { getProducts, newProduct, getSingleProduct, updateProduct, deleteProduct, createReview, getReviews, deleteReview, getAdminProducts } = require('../controllers/productController');
 const router = express.Router();
 const {isAuthenticatedUser, authorizeRoles  } = require('../middlewares/authenticate');
 const { deleteOrder } = require('../controllers/orderController');
+
+
 
 
 
@@ -21,10 +23,11 @@ router.route('/review').delete(deleteReview);
 
 
 //Admin rotes
-router.route('admin/products/new').post(isAuthenticatedUser, authorizeRoles('admin'), newProduct);
+router.route('/admin/product/new').post(isAuthenticatedUser, authorizeRoles('admin'), newProduct);
+router.route('/admin/products').get(isAuthenticatedUser, authorizeRoles('admin'), getAdminProducts);
 
 
 
 
 
-module.exports = router
+module.exports = router;

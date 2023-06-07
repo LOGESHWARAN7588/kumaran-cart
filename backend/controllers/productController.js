@@ -171,6 +171,9 @@ exports.getReviews = catchAsyncError (async (req, res, next)=>{
 })
 })
 
+
+
+
 //Delete Reviews - api/v1/review
 exports.deleteReview = catchAsyncError (async (req, res, next)=>{
     const product = await Product.findById(req.query.productId);
@@ -202,4 +205,15 @@ exports.deleteReview = catchAsyncError (async (req, res, next)=>{
     })
 
 });
+
+
+// get admin products  - api/v1/admin/products
+exports.getAdminProducts = catchAsyncError(async (req, res, next) =>{
+    const products = await Product.find();
+    res.status(200).send({
+        success: true,
+        products
+    })
+});
+
 
