@@ -93,6 +93,32 @@ const productSlice = createSlice({
                 isProductCreated: false
             }
         },
+        deleteProductRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        deleteProductSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isProductDeleted: true
+            }
+        },
+        deleteProductFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload,
+            }
+        },
+        clearProductDeleted(state, action) {
+            return {
+                ...state,
+                isProductDeleted: false
+            }
+        },
     }
 
 
@@ -113,6 +139,10 @@ export const{
     newProductFail,
     newProductRequest,
     newProductSuccess,
-    clearProductCreated
+    clearProductCreated,
+    deleteProductFail,
+    deleteProductRequest,
+    deleteProductSuccess,
+    clearProductDeleted,
 } = actions;
 export default reducer;
