@@ -9,7 +9,9 @@ const productSlice = createSlice({
         loading: false,
         product :{},
         isReviewSubmitted:false,
-        isProductCreated: false
+        isProductCreated: false,
+        isProductDeleted: false,
+        isProductUpdated: false
     },
     reducers:{
         productRequest(state, action){
@@ -119,6 +121,34 @@ const productSlice = createSlice({
                 isProductDeleted: false
             }
         },
+
+        updateProductRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        updateProductSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                product: action.payload.product,
+                isProductUpdated: true
+            }
+        },
+        updateProductFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload,
+            }
+        },
+        clearProductUpdated(state, action) {
+            return {
+                ...state,
+                isProductUpdated: false
+            }
+        },
     }
 
 
@@ -144,5 +174,9 @@ export const{
     deleteProductRequest,
     deleteProductSuccess,
     clearProductDeleted,
+    updateProductFail,
+    updateProductRequest,
+    updateProductSuccess,
+    clearProductUpdated
 } = actions;
 export default reducer;

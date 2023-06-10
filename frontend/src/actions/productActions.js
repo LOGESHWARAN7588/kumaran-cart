@@ -1,6 +1,6 @@
 import axios from "axios"
 import {  productsRequest, productsSuccess, productsFail, adminProductsRequest, adminProductsSuccess, adminProductsFail} from '../slices/productsSlice'
-import {  productRequest, productSuccess, productFail, createReviewRequest, createReviewSuccess, createReviewFail, newProductRequest, newProductSuccess, newProductFail, deleteProductRequest, deleteProductSuccess, deleteProductFail} from '../slices/productSlice'
+import {  productRequest, productSuccess, productFail, createReviewRequest, createReviewSuccess, createReviewFail, newProductRequest, newProductSuccess, newProductFail, deleteProductRequest, deleteProductSuccess, deleteProductFail, updateProductRequest, updateProductSuccess, updateProductFail} from '../slices/productSlice'
 
 
 
@@ -113,6 +113,19 @@ export const deleteProduct  =  id => async (dispatch) => {
     } catch (error) {
         //handle error
         dispatch(deleteProductFail(error.response.data.message))
+    }
+    
+}
+
+export const updateProduct  =  (id, productData) => async (dispatch) => {
+
+    try {  
+        dispatch(updateProductRequest()) 
+        const { data }  =  await axios.put(`/api/v1/admin/product/${id}`, productData);
+        dispatch(updateProductSuccess(data))
+    } catch (error) {
+        //handle error
+        dispatch(updateProductFail(error.response.data.message))
     }
     
 }
