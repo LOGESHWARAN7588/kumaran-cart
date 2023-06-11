@@ -199,7 +199,7 @@ exports.createReview = catchAsyncError (async (req, res, next)=>{
 
 //Get Review - api/v1/reviews?id={productId}
 exports.getReviews = catchAsyncError (async (req, res, next)=>{
-    const product = await Product.findById(req.query.id);
+    const product = await Product.findById(req.query.id).populate('reviews.user','name email');
 
     
    res.status(200).json({
